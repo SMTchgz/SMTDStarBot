@@ -161,3 +161,5 @@ def get_wallet(message):
 if __name__ == '__main__':
     print(" SMTD StarRank Bot is running...")
     bot.polling()
+    bot.remove_webhook()
+bot.set_webhook(url="https://your-render-url.onrender.com/webhook")
