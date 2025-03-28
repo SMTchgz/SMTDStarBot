@@ -1,9 +1,15 @@
 import os
-from dotenv import load_dotenv  # نستورد هذه المكتبة
-
-# تحميل متغيرات البيئة من ملف .env
-load_dotenv()
 
 class Config:
-    BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")  # سيقرأ القيمة من ملف .env
-    ADMIN_IDS = [1819080408, 6547641571]  # أصبحت الآن قائمة (list) بدلًا من tuple
+    # Telegram Bot Token
+    BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+    
+    # Render Configuration
+    RENDER_URL = os.getenv("RENDER_URL", "your-render-service-name.onrender.com")
+    PORT = int(os.getenv("PORT", 10000))
+    
+    # Deployment Environment
+    DEPLOY_ENV = os.getenv("DEPLOY_ENV", "development")
+    
+    # Admin IDs
+    ADMIN_IDS = [int(id) for id in os.getenv("ADMIN_IDS", "123456789").split(",")]
